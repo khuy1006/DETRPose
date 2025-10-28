@@ -1,3 +1,14 @@
+"""
+DETRPose: Real-time end-to-end transformer model for multi-person pose estimation
+Copyright (c) 2025 The DETRPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from GroupPose (https://github.com/Michel-liu/GroupPose/)
+Copyright (c) 2023 GroupPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from ED-Pose (https://github.com/IDEA-Research/ED-Pose/)
+Copyright (c) 2023 IDEA. All Rights Reserved.
+"""
+
 import os
 import contextlib
 import copy

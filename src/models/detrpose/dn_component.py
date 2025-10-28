@@ -1,12 +1,13 @@
-
-# ------------------------------------------------------------------------
-# DINO
-# Copyright (c) 2022 IDEA. All Rights Reserved.
-# Licensed under the Apache License, Version 2.0 [see LICENSE for details]
-# ------------------------------------------------------------------------
-# DN-DETR
-# Copyright (c) 2022 IDEA. All Rights Reserved.
-# Licensed under the Apache License, Version 2.0 [see LICENSE for details]
+"""
+DETRPose: Real-time end-to-end transformer model for multi-person pose estimation
+Copyright (c) 2025 The DETRPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from DINO (https://github.com/IDEA-Research/DINO/)
+Copyright (c) 2022 IDEA. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from DN-DETR (https://github.com/IDEA-Research/DN-DETR/)
+Copyright (c) 2022 IDEA. All Rights Reserved.
+"""
 
 
 import torch

@@ -1,7 +1,14 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
 """
-Train and eval functions used in main.py
+DETRPose: Real-time end-to-end transformer model for multi-person pose estimation
+Copyright (c) 2025 The DETRPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from DEIM (https://github.com/Intellindust-AI-Lab/DEIM/)
+Copyright (c) 2024 The DEIM Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from DETR (https://github.com/facebookresearch/detr/blob/main/engine.py)
+Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 """
+
 import math
 import sys
 from typing import Iterable

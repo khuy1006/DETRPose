@@ -1,5 +1,5 @@
 """
-Modified from D-FINE (https://github.com/Peterande/D-FINE)
+D-FINE: Redefine Regression Task of DETRs as Fine-grained Distribution Refinement
 Copyright (c) 2024 The D-FINE Authors. All Rights Reserved.
 ---------------------------------------------------------------------------------
 Modified from RT-DETR (https://github.com/lyuwenyu/RT-DETR)

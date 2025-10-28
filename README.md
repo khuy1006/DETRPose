@@ -368,12 +368,12 @@ If you use `DETRPose` or its methods in your work, please cite the following Bib
 ## Acknowledgement
 This work was supported in part by [Lambda.ai](https://lambda.ai).
 
-Our work is built upon [D-FINE](https://github.com/Peterande/D-FINE), [Detectron2](https://github.com/facebookresearch/detectron2/tree/main), and [GroupPose](https://github.com/Michel-liu/GroupPose/tree/main).
+Our work is built upon [DEIM](https://github.com/Intellindust-AI-Lab/DEIM/tree/main), [D-FINE](https://github.com/Peterande/D-FINE), [Detectron2](https://github.com/facebookresearch/detectron2/tree/main), and [GroupPose](https://github.com/Michel-liu/GroupPose/tree/main).
 
 ✨ Feel free to contribute and reach out if you have any questions! ✨
 
 <div align="left">
-  <a href="https://lambda.ai">
-  	<img src="https://github.com/SebastianJanampa/DETRPose/blob/main/assets/lambda_logo2.png" width=350 >
+  <a href="https://lambda.ai" target="_blank">
+  	<img src="https://github.com/SebastianJanampa/DETRPose/blob/main/assets/lambda_logo2.png" width=500 >
   </a>
 </div>

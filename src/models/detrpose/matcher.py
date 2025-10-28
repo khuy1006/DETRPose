@@ -1,16 +1,13 @@
-# ------------------------------------------------------------------------
-# Modified from :
-# Modules to compute the matching cost and solve the corresponding LSAP.
-# Copyright (c) 2021 Microsoft. All Rights Reserved.
-# Licensed under the Apache License, Version 2.0 [see LICENSE for details]
-# ------------------------------------------------------------------------
-# Modified from DETR (https://github.com/facebookresearch/detr)
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
-# ------------------------------------------------------------------------
-# Modified from Deformable DETR (https://github.com/fundamentalvision/Deformable-DETR)
-# Copyright (c) 2020 SenseTime. All Rights Reserved.
-# ------------------------------------------------------------------------
-
+"""
+DETRPose: Real-time end-to-end transformer model for multi-person pose estimation
+Copyright (c) 2025 The DETRPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from GroupPose (https://github.com/Michel-liu/GroupPose/)
+Copyright (c) 2023 GroupPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from ED-Pose (https://github.com/IDEA-Research/ED-Pose/)
+Copyright (c) 2023 IDEA. All Rights Reserved.
+"""
 
 import torch
 from scipy.optimize import linear_sum_assignment

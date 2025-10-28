@@ -1,11 +1,19 @@
-# ------------------------------------------------------------------------
-# Modified from Conditional DETR Transformer class.
-# Copyright (c) 2021 Microsoft. All Rights Reserved.
-# Licensed under the Apache License, Version 2.0 [see LICENSE for details]
-# ------------------------------------------------------------------------
-# Modified from DETR (https://github.com/facebookresearch/detr)
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
-# ------------------------------------------------------------------------
+"""
+DETRPose: Real-time end-to-end transformer model for multi-person pose estimation
+Copyright (c) 2025 The DETRPose Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from D-DEIM (https://github.com/Intellindust-AI-Lab/DEIM/)
+Copyright (c) 2024 The DEIM Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from D-FINE (https://github.com/Peterande/D-FINE/)
+Copyright (c) 2024 D-FINE Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from RT-DETR (https://github.com/lyuwenyu/RT-DETR/)
+Copyright (c) 2023 RT-DETR Authors. All Rights Reserved.
+---------------------------------------------------------------------------------
+Modified from GroupPose (https://github.com/Michel-liu/GroupPose/)
+Copyright (c) 2023 GroupPose Authors. All Rights Reserved.
+"""
 
 import copy
 import math
