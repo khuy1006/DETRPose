@@ -7,4 +7,6 @@ omegaconf
 calflops
 iopath
 scipy
+torch
+torchvision
 numpy==1.23.5

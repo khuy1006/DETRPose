@@ -11,10 +11,9 @@ import torchvision.transforms as T
 
 from PIL import Image, ImageDraw
 from copy import deepcopy
-from annotator import Annotator
-from annotator_crowdpose import AnnotatorCrowdpose
+from annotators import COCOVisualizer, CrowdPoseVisualizer
 
-annotators = {'COCO': Annotator, 'CrowdPose': AnnotatorCrowdpose}
+annotators = {'COCO': COCOVisualizer, 'CrowdPose': CrowdPoseVisualizer}
 
 def process_image(sess, im_pil):
     w, h = im_pil.size
@@ -27,7 +26,7 @@ def process_image(sess, im_pil):
         ]
     )
     im_data = transforms(im_pil).unsqueeze(0)
-    annotator = annotators[annotator_type](deepcopy(im_pil))
+    annotator = annotators[annotator_type]()
 
 
     output = sess.run(
@@ -37,14 +36,14 @@ def process_image(sess, im_pil):
 
     scores, labels, keypoints = output
     scores, labels, keypoints = scores[0], labels[0], keypoints[0]
-    for kpt, score in zip(keypoints, scores):
-        if score > thrh:
-            annotator.kpts(
-                kpt,
-                [h, w]
-                )
-    annotator.save(f"{OUTPUT_NAME}.jpg")
 
+    # Filter by score
+    idx = scores > thrh
+    valid_keypoints = keypoints[idx] # Shape: (N, K, 2)
+    
+    im_cv2 = cv2.cvtColor(np.array(im_pil), cv2.COLOR_RGB2BGR)
+    annotator.draw_on(im_cv2, valid_keypoints)
+    cv2.imwrite(f"{OUTPUT_NAME}.jpg", im_cv2)
 
 def process_video(sess, video_path):
     cap = cv2.VideoCapture(video_path)
@@ -66,6 +65,8 @@ def process_video(sess, video_path):
     )
         
     frame_count = 0
+    annotator = annotators[annotator_type]
+
     print("Processing video frames...")
     while cap.isOpened():
         ret, frame = cap.read()
@@ -77,7 +78,6 @@ def process_video(sess, video_path):
 
         w, h = frame_pil.size
         orig_size = torch.tensor([w, h])[None]
-        annotator = annotators[annotator_type](deepcopy(frame_pil))
 
         im_data = transforms(frame_pil).unsqueeze(0)
 
@@ -88,18 +88,15 @@ def process_video(sess, video_path):
 
         scores, labels, keypoints = output
         scores, labels, keypoints = scores[0], labels[0], keypoints[0]
-        for kpt, score in zip(keypoints, scores):
-            if score > thrh:
-                annotator.kpts(
-                    kpt,
-                    [h, w]
-                    )
+        
+        # Filter by score
+        idx = scores > thrh
+        valid_keypoints = keypoints[idx] # Shape: (N, K, 2)
+        
+        im_cv2 = frame
+        annotator.draw_on(im_cv2, valid_keypoints)
+        cv2.imwrite(f"{OUTPUT_NAME}.jpg", im_cv2)
 
-        # Convert back to OpenCV image
-        frame = annotator.result()
-
-        # Write the frame
-        out.write(frame)
         frame_count += 1
 
         if frame_count % 10 == 0:

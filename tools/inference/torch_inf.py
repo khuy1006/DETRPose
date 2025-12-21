@@ -13,19 +13,18 @@ import torchvision.transforms as T
 
 from PIL import Image, ImageDraw
 from copy import deepcopy
-from annotator import Annotator
-from annotator_crowdpose import AnnotatorCrowdpose
+from annotators import COCOVisualizer, CrowdPoseVisualizer
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from src.core import LazyConfig, instantiate
 
-annotators = {'COCO': Annotator, 'CrowdPose': AnnotatorCrowdpose}
+annotators = {'COCO': COCOVisualizer, 'CrowdPose': CrowdPoseVisualizer}
 
 def process_image(model, device, file_path):
     im_pil = Image.open(file_path).convert("RGB")
     w, h = im_pil.size
     orig_size = torch.tensor([[w, h]]).to(device)
-    annotator = annotators[annotator_type](deepcopy(im_pil))
+    annotator = annotators[annotator_type]()
 
     transforms = T.Compose(
         [
@@ -37,15 +36,18 @@ def process_image(model, device, file_path):
 
     output = model(im_data, orig_size)
 
+
     scores, labels, keypoints = output
-    scores, labels, keypoints = scores[0], labels[0], keypoints[0]
-    for kpt, score in zip(keypoints, scores):
-        if score > thrh:
-            annotator.kpts(
-                kpt,
-                [h, w]
-                )
-    annotator.save(f"{OUTPUT_NAME}.jpg")
+    scores = scores[0].detach().cpu().numpy()
+    keypoints = keypoints[0].detach().cpu().numpy()
+    
+    # Filter by score
+    idx = scores > thrh
+    valid_keypoints = keypoints[idx] # Shape: (N, K, 2)
+    
+    im_cv2 = cv2.cvtColor(np.array(im_pil), cv2.COLOR_RGB2BGR)
+    annotator.draw_on(im_cv2, valid_keypoints)
+    cv2.imwrite(f"{OUTPUT_NAME}.jpg", im_cv2)
 
 
 def process_video(model, device, file_path):
@@ -68,6 +70,8 @@ def process_video(model, device, file_path):
     )
 
     frame_count = 0
+    annotator = annotators[annotator_type]()
+    
     print("Processing video frames...")
     while cap.isOpened():
         ret, frame = cap.read()
@@ -80,26 +84,23 @@ def process_video(model, device, file_path):
         w, h = frame_pil.size
         orig_size = torch.tensor([[w, h]]).to(device)
 
-        annotator = annotators[annotator_type](deepcopy(frame_pil))
 
         im_data = transforms(frame_pil).unsqueeze(0).to(device)
 
         output = model(im_data, orig_size)
 
         scores, labels, keypoints = output
-        scores, labels, keypoints = scores[0], labels[0], keypoints[0]
-        for kpt, score in zip(keypoints, scores):
-            if score > thrh:
-                annotator.kpts(
-                    kpt,
-                    [h, w]
-                    )
+        scores = scores[0].detach().cpu().numpy()
+        keypoints = keypoints[0].detach().cpu().numpy()
+        
+        # Filter by score
+        idx = scores > thrh
+        valid_keypoints = keypoints[idx] # Shape: (N, K, 2)
+        
+        im_cv2 = frame
+        annotator.draw_on(im_cv2, valid_keypoints)
+        cv2.imwrite(f"{OUTPUT_NAME}.jpg", im_cv2)
 
-        # Convert back to OpenCV image
-        frame = annotator.result()
-
-        # Write the frame
-        out.write(frame)
         frame_count += 1
 
         if frame_count % 10 == 0:
