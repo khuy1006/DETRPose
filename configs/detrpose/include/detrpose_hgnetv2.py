@@ -13,7 +13,7 @@ from src.nn import HGNetv2
 training_params = {
     "clip_max_norm": 0.1,
     "save_checkpoint_interval": 1,
-    "grad_accum_steps": 2,
+    "grad_accum_steps": 1,
     "print_freq": 100,
     'sync_bn': True,
     'use_ema': False,
