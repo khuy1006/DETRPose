@@ -16,7 +16,7 @@ import numpy as np
 import torch
 import torch.utils.data
 from PIL import Image
-from xtcocotools.coco import COCO
+from pycocotools.coco import COCO
 
 class CrowdPoseDetection(torch.utils.data.Dataset):
     def __init__(self, img_folder, ann_file, transforms, return_masks=False):
