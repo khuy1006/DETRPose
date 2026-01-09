@@ -8,4 +8,4 @@ iopath
 scipy
 torch
 torchvision
-numpy==1.23.5
+numpy
