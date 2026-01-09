@@ -5,7 +5,7 @@ import dataclasses
 import logging
 from typing import Any
 
-from .utils import _convert_target_to_string, locate
+from DETRPose.src.core.utils import _convert_target_to_string, locate
 
 __all__ = ["dump_dataclass", "instantiate"]
 

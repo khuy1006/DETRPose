@@ -1,5 +1,5 @@
-from src.core import LazyCall as L
-from src.models.detrpose import (
+from DETRPose.src.core import LazyCall as L
+from DETRPose.src.models.detrpose import (
     DETRPose,
     HybridEncoder,
     Transformer,
@@ -8,7 +8,7 @@ from src.models.detrpose import (
     HungarianMatcher,
     )
 
-from src.nn import HGNetv2
+from DETRPose.src.nn import HGNetv2
 
 training_params = {
     "clip_max_norm": 0.1,

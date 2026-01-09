@@ -18,7 +18,7 @@ import pycocotools.mask as mask_util
 
 from omegaconf import ListConfig
 
-from ..misc.logger import all_gather
+from DETRPose.src.misc.logger import all_gather
 
 
 class CocoEvaluator(object):

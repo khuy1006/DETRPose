@@ -9,7 +9,7 @@ from torch.utils.data import DistributedSampler
 from torch.nn.parallel import DataParallel as DP
 from torch.nn.parallel import DistributedDataParallel as DDP
 
-from ..data.dataloader import DataLoader
+from DETRPose.src.data.dataloader import DataLoader
 
 def is_dist_avail_and_initialized():
     if not dist.is_available():

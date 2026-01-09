@@ -1,4 +1,4 @@
-from tools.inference.base_annotator import BasePoseVisualizer
+from DETRPose.tools.inference.base_annotator import BasePoseVisualizer
 
 class COCOVisualizer(BasePoseVisualizer):
     """Configuration for COCO 17-keypoint format."""

@@ -19,7 +19,7 @@ from pycocotools.cocoeval import COCOeval
 
 
 from omegaconf import ListConfig
-from ..misc.logger import all_gather
+from DETRPose.src.misc.logger import all_gather
 
 class CrowdPoseEvaluator(object):
     def __init__(self, ann_file, iou_types, useCats=True):

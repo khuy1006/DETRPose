@@ -16,7 +16,7 @@ import cloudpickle
 import yaml
 from omegaconf import DictConfig, ListConfig, OmegaConf, SCMode
 
-from .utils import PathManager, _convert_target_to_string
+from DETRPose.src.core.utils import PathManager, _convert_target_to_string
 
 __all__ = ["LazyCall", "LazyConfig"]
 

@@ -1,9 +1,9 @@
-from .include.detrpose_hgnetv2 import model, criterion, training_params, postprocessor
-from .include.dataset import dataset_train, dataset_val, dataset_test, evaluator
+from DETRPose.configs.detrpose.include.detrpose_hgnetv2 import model, criterion, training_params, postprocessor
+from DETRPose.configs.detrpose.include.dataset import dataset_train, dataset_val, dataset_test, evaluator
 
-from src.core import LazyCall as L
-from src.nn.optimizer import ModelEMA 
-from src.misc.get_param_dicts import get_optim_params
+from DETRPose.src.core import LazyCall as L
+from DETRPose.src.nn.optimizer import ModelEMA 
+from DETRPose.src.misc.get_param_dicts import get_optim_params
 
 from torch import optim
 
