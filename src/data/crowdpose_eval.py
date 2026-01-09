@@ -14,8 +14,8 @@ import contextlib
 import copy
 import numpy as np
 import torch
-from xtcocotools.coco import COCO
-from xtcocotools.cocoeval import COCOeval
+from pycocotools.coco import COCO
+from pycocotools.cocoeval import COCOeval
 
 
 from omegaconf import ListConfig
