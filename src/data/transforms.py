@@ -28,8 +28,8 @@ import torchvision.transforms.functional as F
 import torchvision.transforms.v2.functional as F2
 
 from PIL import Image
-from ..misc.mask_ops import interpolate
-from ..misc.box_ops import box_xyxy_to_cxcywh
+from DETRPose.src.misc.mask_ops import interpolate
+from DETRPose.src.misc.box_ops import box_xyxy_to_cxcywh
 
 from omegaconf import ListConfig
 

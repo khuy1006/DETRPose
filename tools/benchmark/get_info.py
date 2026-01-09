@@ -3,8 +3,7 @@ Copyright (c) 2024 The D-FINE Authors. All Rights Reserved.
 """
 
 import os, sys
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '../..'))
-from src.core import LazyConfig, instantiate
+from DETRPose.src.core import LazyConfig, instantiate
 
 import argparse
 from calflops import calculate_flops

@@ -23,9 +23,9 @@ import torch
 import torch.nn.functional as F
 from torch import nn, Tensor
 
-from .ms_deform_attn import MSDeformAttn
-from .dn_component import prepare_for_cdn, dn_post_process
-from .utils import gen_encoder_output_proposals, inverse_sigmoid, MLP, _get_activation_fn
+from DETRPose.src.models.detrpose.ms_deform_attn import MSDeformAttn
+from DETRPose.src.models.detrpose.dn_component import prepare_for_cdn, dn_post_process
+from DETRPose.src.models.detrpose.utils import gen_encoder_output_proposals, inverse_sigmoid, MLP, _get_activation_fn
 
 from ...misc.keypoint_ops import keypoint_xyzxyz_to_xyxyzz
 

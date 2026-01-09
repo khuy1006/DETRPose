@@ -17,7 +17,7 @@ import torchvision.transforms as T
 
 from PIL import Image, ImageDraw
 from copy import deepcopy
-from annotators import COCOVisualizer, CrowdPoseVisualizer
+from DETRPose.tools.inference.annotators import COCOVisualizer, CrowdPoseVisualizer
 
 annotators = {'COCO': COCOVisualizer, 'CrowdPose': CrowdPoseVisualizer}
 

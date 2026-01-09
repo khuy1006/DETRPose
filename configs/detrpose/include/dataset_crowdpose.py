@@ -1,15 +1,15 @@
-from src.core import LazyCall as L
-from src.data import CrowdPoseDetection
-from src.data.dataloader import (
+from DETRPose.src.core import LazyCall as L
+from DETRPose.src.data import CrowdPoseDetection
+from DETRPose.src.data.dataloader import (
 	BatchImageCollateFunction, 
 	DataLoader
 	)
-from src.data.crowdpose_eval import CrowdPoseEvaluator
-from src.data.container import Compose
-import src.data.transforms as T
-import src.data.transforms_crowdpose as CrowdT
+from DETRPose.src.data.crowdpose_eval import CrowdPoseEvaluator
+from DETRPose.src.data.container import Compose
+import DETRPose.src.data.transforms as T
+import DETRPose.src.data.transforms_crowdpose as CrowdT
 
-from .detrpose_hgnetv2 import eval_spatial_size
+from DETRPose.configs.detrpose.include.detrpose_hgnetv2 import eval_spatial_size
 
 from omegaconf import OmegaConf
 

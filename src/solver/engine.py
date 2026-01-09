@@ -14,8 +14,8 @@ import sys
 from typing import Iterable
 
 import torch
-from ..misc import logger as utils
-from ..misc import dist_utils
+from DETRPose.src.misc import logger as utils
+from DETRPose.src.misc import dist_utils
 
 GIGABYTE = 1024 ** 3
 

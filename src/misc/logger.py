@@ -7,7 +7,7 @@ from typing import Dict
 import torch
 import torch.distributed as dist
 
-from .dist_utils import is_dist_avail_and_initialized, get_world_size
+from DETRPose.src.misc.dist_utils import is_dist_avail_and_initialized, get_world_size
 
 
 class SmoothedValue(object):

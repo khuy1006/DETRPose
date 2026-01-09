@@ -1,9 +1,9 @@
 import argparse
 from omegaconf import OmegaConf
 
-from src.solver import Trainer
-from src.misc import dist_utils
-from src.core import LazyConfig, instantiate
+from DETRPose.src.solver import Trainer
+from DETRPose.src.misc import dist_utils
+from DETRPose.src.core import LazyConfig, instantiate
 
 def get_args_parser():
     parser = argparse.ArgumentParser('Set transformer detector', add_help=False)

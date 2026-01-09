@@ -22,10 +22,10 @@ import torch
 import torch.nn.functional as F
 from torch import nn
 
-from ...misc.dist_utils import get_world_size, is_dist_avail_and_initialized
-from ...misc.keypoint_loss import OKSLoss
+from DETRPose.src.misc.dist_utils import get_world_size, is_dist_avail_and_initialized
+from DETRPose.src.misc.keypoint_loss import OKSLoss
 
-from .utils import sigmoid_focal_loss
+from DETRPose.src.models.detrpose.utils import sigmoid_focal_loss
 
 class Criterion(nn.Module):
     def __init__(self, 

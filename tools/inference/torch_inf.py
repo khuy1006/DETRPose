@@ -13,10 +13,9 @@ import torchvision.transforms as T
 
 from PIL import Image, ImageDraw
 from copy import deepcopy
-from annotators import COCOVisualizer, CrowdPoseVisualizer
+from DETRPose.tools.inference.annotators import COCOVisualizer, CrowdPoseVisualizer
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
-from src.core import LazyConfig, instantiate
+from DETRPose.src.core import LazyConfig, instantiate
 
 annotators = {'COCO': COCOVisualizer, 'CrowdPose': CrowdPoseVisualizer}
 

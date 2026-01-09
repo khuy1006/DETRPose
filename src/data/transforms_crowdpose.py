@@ -25,8 +25,8 @@ import torchvision.transforms as T
 import torchvision.transforms.functional as F
 
 from PIL import Image
-from ..misc.mask_ops import interpolate
-from ..misc.box_ops import box_xyxy_to_cxcywh
+from DETRPose.src.misc.mask_ops import interpolate
+from DETRPose.src.misc.box_ops import box_xyxy_to_cxcywh
 
 
 def crop(image, target, region):
