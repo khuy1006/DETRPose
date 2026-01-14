@@ -7,9 +7,9 @@ from DETRPose.src.misc.get_param_dicts import get_optim_params
 
 from torch import optim
 
-training_params.output_dir =  "output/detrpose_hgnetv2_l"
-training_params.epochs = 52 # 48 + 4
-training_params.use_ema = True
+training_params['output_dir'] =  "output/detrpose_hgnetv2_l"
+training_params['epochs'] = 52 # 48 + 4
+training_params['use_ema'] = True
 
 ema = L(ModelEMA)(
     decay=0.9999,
